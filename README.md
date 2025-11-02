@@ -4,7 +4,7 @@
     <p><b>삼성 청년 SW·AI 아카데미 13기</b></p>
     <p><b>공통 프로젝트 부울경 1반 TEAM 02 </b></p>
     <p>🏆 <b>우수상 수상</b></p>
-    <p>🏆 <b>영상 포트폴리오 (수상 하고 싶다)</b></p>
+    <p>🏆 <b>영상 포트폴리오 입상</b></p>
 </div>
 
 ---
@@ -22,14 +22,14 @@
 ## 📑 목차
 1. [💡 프로젝트 소개](#-프로젝트-소개)
 2. [💡 주요 기능 및 플랫폼](#-주요-기능-및-플랫폼)
-3. [🗓️ 개발 일정](#️-개발-일정)
+3. [🗓️ 개발 일정](#-개발-일정)
 4. [📝 산출물](#-산출물)
 5. [👨‍👩‍👧‍👦 개발 팀 소개](#-개발-팀-소개)
-6. [🛠️ 기술 스택](#️-기술-스택)
-7. [🖥️ 서비스 화면](#️-서비스-화면-)
+6. [🛠️ 기술 스택](#-기술-스택)
+7. [🖥️ 서비스 화면](#-서비스-화면)
 8. [📂 아키텍처 구조](#-아키텍처-구조)
-9. [🏗️ 프로젝트 구조](#️-프로젝트-구조)
-10. [⚙️ 실행 방법](#️-실행-방법)
+9. [🏗️ 프로젝트 구조](#-프로젝트-구조)
+10. [⚙️ 실행 방법](#-실행-방법)
 
 ---
 
@@ -125,8 +125,9 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>인프라 구축</li>
+              <li>대시보드 API 개발</li>
+              <li>FCM 알림 구현</li>
             </ul>
           </small>
         </div>
@@ -142,8 +143,8 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>모바일 화면 설계</li>
+              <li>갤럭시 워치 API 연동</li>
             </ul>
           </small>
         </div>
@@ -159,8 +160,8 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>Capacitor 코드 연동</li>
+              <li>웹 화면 설계</li>
             </ul>
           </small>
         </div>
@@ -179,8 +180,8 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>AI 모델 연동</li>
+              <li>안전장비 미착용 감지 기능 개발</li>
             </ul>
           </small>
         </div>
@@ -197,8 +198,8 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>로그인/회원가입 API 개발</li>
+              <li>웨어러블 디바이스 어플 개발</li>
             </ul>
           </small>
         </div>
@@ -215,8 +216,8 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
         <div align="left">
           <small>
             <ul>
-              <li>담당 역할 1</li>
-              <li>담당 역할 2</li>
+              <li>안면인식 모델 개발</li>
+              <li>웨어러블 디바이스 어플 개발</li>
             </ul>
           </small>
         </div>
@@ -367,7 +368,37 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
 <summary>frontend-repo/</summary>
 
 ```
-
+frontend-repo/
+|-- android/                # Capacitor Android bridge (Wear OS companion)
+|   |-- app/
+|   |-- build/
+|   `-- gradle/
+|-- docker/
+|   |-- edge/
+|   `-- frontend/
+|-- public/
+|   |-- fonts/
+|   `-- firebase-messaging-sw.js
+|-- scripts/
+|   `-- copy-sw.js
+|-- src/
+|   |-- api/
+|   |-- bootstrap/
+|   |-- components/
+|   |-- constants/
+|   |-- features/
+|   |-- hooks/
+|   |-- layouts/
+|   |-- notification/
+|   |-- routes/
+|   |-- stores/
+|   |-- styles/
+|   |-- types/
+|   `-- utils/
+|-- capacitor.config.ts
+|-- package.json
+|-- pnpm-lock.yaml
+`-- vite.config.ts
 ```
 </details>
 
@@ -377,7 +408,30 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
 <summary>backend-repo/</summary>
 
 ```
-
+backend-repo/
+|-- src/
+|   |-- main/
+|   |   `-- java/watch/out/
+|   |       |-- accident/         # 사고 이력 및 대응 관리
+|   |       |-- announcement/     # 공지 게시 모듈
+|   |       |-- area/             # 작업 구역 · 출입 제어
+|   |       |-- auth/             # 인증 및 토큰 처리
+|   |       |-- cctv/             # CCTV 연동 및 스트림 제어
+|   |       |-- common/           # 공통 설정 · 예외 · 유틸리티
+|   |       |-- company/          # 현장/기업 마스터 데이터
+|   |       |-- dashboard/        # 대시보드 통계 API
+|   |       |-- notification/     # FCM 알림 발송
+|   |       |-- s3/               # 파일 업로드(S3)
+|   |       |-- safety/           # 안전장비 위반 기록
+|   |       |-- user/             # 사용자 · 역할 관리
+|   |       `-- watch/            # 스마트워치 연동 API
+|   `-- test/
+|       `-- java/watch/out/
+|-- dummy_data.sql
+|-- build.gradle
+|-- settings.gradle
+|-- Dockerfile
+`-- gradlew
 ```
 </details>
 
@@ -387,7 +441,25 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
 <summary>watch-repo/</summary>
 
 ```
-
+watch-repo/
+|-- app/
+|   |-- src/
+|   |   |-- main/
+|   |   |   |-- AndroidManifest.xml
+|   |   |   |-- java/com/ssafy/watchout/
+|   |   |   |   |-- core/          # DI, 서비스 및 계약 정의
+|   |   |   |   |-- data/          # 원격 데이터 모델
+|   |   |   |   |-- domain/        # Health Services 도메인 로직
+|   |   |   |   `-- presentation/  # Wear Compose UI 화면
+|   |   |   `-- res/               # 리소스 (레이아웃, 이미지 등)
+|   |   `-- test/
+|   |-- build.gradle.kts
+|   `-- proguard-rules.pro
+|-- build.gradle.kts
+|-- gradle/
+|   `-- wrapper/
+|-- gradlew
+`-- settings.gradle.kts
 ```
 </details>
 
@@ -397,7 +469,29 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
 <summary>ai-repo/</summary>
 
 ```
-
+ai-repo/
+|-- main.py                    # Flask 진입점 (멀티 스트림 제어)
+|-- config.py
+|-- util/
+|   |-- capture_utils.py
+|   |-- cctv_bound.py
+|   |-- kafka_client.py
+|   |-- kafka_control_consumer.py
+|   `-- stream_workers.py
+|-- templates/
+|   |-- form.html
+|   `-- multi.html
+|-- snapshot/                  # 탐지 스냅샷 예시
+|-- weights/
+|   `-- yolact_resnet101_safety_33_200000.pth
+|-- yolactMaster/              # 커스텀 YOLACT 백본
+|   |-- data/
+|   |-- layers/
+|   |-- scripts/
+|   |-- utils/
+|   `-- yolact.py
+|-- check_bytes.py
+|-- check_s3.py
 ```
 </details>
 
@@ -406,7 +500,20 @@ AI 기반 건설현장 안전관리 플랫폼 WatchOut을 개발한 팀입니다
 <summary>ai-repo2/</summary>
 
 ```
-
+ai-repo2/
+|-- app/
+|   |-- main.py                 # FastAPI 엔트리포인트
+|   |-- adapters/               # 외부 연동 레이어 (S3, Redis 등)
+|   |-- routes/                 # API 엔드포인트 정의
+|   |-- services/               # ArcFace 추론 · 업무 로직
+|   `-- config.py
+|-- models/                     # 얼굴 인식 모델 자산
+|-- scripts/
+|   `-- run_local_registration.py
+|-- requirements.txt
+|-- evaluate_lfw.py
+|-- test_api_request.py
+`-- test_arcface.py
 ```
 </details>
 
